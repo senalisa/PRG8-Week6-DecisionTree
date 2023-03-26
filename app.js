@@ -6,7 +6,7 @@ import { VegaTree } from "./libraries/vegatree.js"
 //
 const csvFile = "./data/mushrooms.csv"
 const trainingLabel = "class"
-const ignored = ["class","cap-shape", "cap-surface", "cap-color", "gill-attachment", "gill-spacing", "gill-size", "gill-color", "stalk-shape", "stalk-root", "stalk-surface-above-ring", "stalk-surface-below-ring", "stalk-color-above-ring", "stalk-color-below-ring", 
+const ignored = ["class", "gill-attachment", "gill-spacing", "stalk-shape", "stalk-root", "stalk-surface-above-ring", "stalk-surface-below-ring", "stalk-color-above-ring", "stalk-color-below-ring", 
 "veil-type", "veil-color", "ring-number", "ring-type"]
 
 

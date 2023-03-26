@@ -27,10 +27,15 @@ function modelLoaded(model) {
 
                 const bruises = document.getElementById('bruises').value;
                 const odor = document.getElementById('odor').value;
+                const capshape = document.getElementById('capshape').value;
+                const capsurface = document.getElementById('capsurface').value;
+                const capcolor = document.getElementById('capcolor').value;
+                const gillsize = document.getElementById('gillsize').value;
+                const gillcolor = document.getElementById('gillcolor').value;
                 const population = document.getElementById('population').value;
                 const habitat = document.getElementById('habitat').value;
 
-                const prediction = decisionTree.predict({ bruises, odor, population, habitat });
+                const prediction = decisionTree.predict({ bruises, odor, capshape, capsurface, capcolor, gillsize, gillcolor, population, habitat });
                 
                 const resultElement = document.getElementById('predictionResult');
                 // resultElement.innerHTML = `Prediction: ${prediction}`;
