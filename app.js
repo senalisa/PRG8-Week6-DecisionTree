@@ -6,7 +6,8 @@ import { VegaTree } from "./libraries/vegatree.js"
 //
 const csvFile = "./data/mushrooms.csv"
 const trainingLabel = "class"
-const ignored = []
+const ignored = ["class","cap-shape", "cap-surface", "cap-color", "gill-attachment", "gill-spacing", "gill-size", "gill-color", "stalk-shape", "stalk-root", "stalk-surface-above-ring", "stalk-surface-below-ring", "stalk-color-above-ring", "stalk-color-below-ring", 
+"veil-type", "veil-color", "ring-number", "ring-type"]
 
 
 //
@@ -17,20 +18,23 @@ function loadData() {
         download: true,
         header: true,
         dynamicTyping: true,
+        minNumSamples: 10,
         complete: results => trainModel(results.data)   // use this data to train
     })
 }
+
 
 //
 // MACHINE LEARNING - Decision Tree
 //
 function trainModel(data) {
+
     // shuffle the data before splitting it into training and testing sets
-    data.sort(() => (Math.random() - 0.5))
+    data.sort(() => (Math.random() - 0.2))
 
     // split data into traindata and testdata
-    let trainData = data.slice(0, Math.floor(data.length * 0.8))
-    let testData = data.slice(Math.floor(data.length * 0.8))
+    let trainData = data.slice(0, Math.floor(data.length * 0.4))
+    let testData = data.slice(Math.floor(data.length * 0.4))
 
     // create the algorithm
     let decisionTree = new DecisionTree({
