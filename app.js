@@ -30,7 +30,7 @@ function loadData() {
 function trainModel(data) {
 
     // shuffle the data before splitting it into training and testing sets
-    data.sort(() => (Math.random() - 0.2))
+    data.sort(() => (Math.random() - 0.4))
 
     // split data into traindata and testdata
     let trainData = data.slice(0, Math.floor(data.length * 0.4))
@@ -75,17 +75,17 @@ function trainModel(data) {
             if (prediction === testData[i].class) {
                 amountCorrect++
 
-                if (prediction === "p") {
-                    truePositives++;
-                  } else {
-                    trueNegatives++;
-                  }
-                } else {
-                  if (prediction === "p") {
-                    falsePositives++;
-                  } else {
-                    falseNegatives++;
-                  }
+              if (prediction === "p" && testData[i].class === "p") {
+                  truePositives++;
+              } else if (prediction === "e" && testData[i].class === "e") {
+                  trueNegatives++;
+              }
+              } else {
+                if (prediction === "p" && testData[i].class === "e") {
+                  falsePositives++;
+              } else if (prediction === "e" && testData[i].class === "p") {
+                  falseNegatives++;
+              }
             }
         }
 
